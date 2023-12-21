@@ -23,8 +23,15 @@ public class CountryFragment extends Fragment {
         return binding.getRoot();
     }
 
-    public void displayCountries(ArrayList<String> countries) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, countries);
-        binding.listViewCountries.setAdapter(adapter);
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        ArrayList<String> countries = getArguments().getStringArrayList("countries");
+
+        if (countries != null) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, countries);
+            binding.listViewCountries.setAdapter(adapter);
+        }
     }
 }
