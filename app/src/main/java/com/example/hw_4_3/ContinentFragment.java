@@ -95,17 +95,17 @@ public class ContinentFragment extends Fragment implements OnitemClick {
         continentList.get(5).setCountries(australiaCountries);
 
 
-
-
     }
 
     @Override
     public void OnitemClick(int position) {
         ContinentModel continentModel = continentList.get(position);
-        Toast.makeText(requireContext(), continentModel.getName(), Toast.LENGTH_SHORT).show();
 
         CountryFragment countryFragment = new CountryFragment();
-        countryFragment.displayCountries(continentModel.getCountries());
+
+        Bundle bundle = new Bundle();
+        bundle.putStringArrayList("countries", continentModel.getCountries());
+        countryFragment.setArguments(bundle);
 
         getParentFragmentManager().beginTransaction()
                 .replace(R.id.conteiner, countryFragment)
