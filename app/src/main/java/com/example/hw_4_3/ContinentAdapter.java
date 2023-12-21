@@ -15,25 +15,13 @@ import java.util.ArrayList;
 
 public class ContinentAdapter  extends RecyclerView.Adapter <ViewHolder> {
 
-   import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
-import com.example.hw_4_3.databinding.ItemMultcontsBinding;
-
-import java.util.ArrayList;
 
     public class СontinentAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         private ArrayList<ContinentModel> continentList;
         private OnitemClick onClick;
 
-        public continentAdapter(ArrayList<ContinentModel> continentList, OnitemClick onClick) {
+        public void continentAdapter(ArrayList<ContinentModel> continentList, OnitemClick onClick) {
             this.continentList = continentList;
             this.onClick = onClick;
         }
